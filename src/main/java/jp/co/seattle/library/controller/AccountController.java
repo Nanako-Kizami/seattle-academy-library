@@ -50,23 +50,26 @@ public class AccountController {
 
 		// バリデーションチェック、パスワード一致チェック（タスク１）
 		
-		if (password.length() >= 8 && password.mathches("[A-Za-z0-9]+$") ) {
-			if(password.equels(passwordForCheck)) {
+		if (password.length() >= 8 && password.matches("^[A-Za-z0-9]+$") ) {
+			if(password.equals(passwordForCheck)) {
+				// パラメータで受け取ったアカウント情報をDtoに格納する。
+				UserInfo userInfo = new UserInfo();
+				userInfo.setEmail(email);
+				userInfo.setPassword(password);
+				usersService.registUser(userInfo);
+				return "redirect:/login";
 				
 			}else {
-				model.addAttriute("errorMessage", "設定したパスワードと一致しません。");
+				model.addAttribute("errorMessage", "設定したパスワードと一致しません。");
+				return "createAccount";
+			}	
 			}else {
 				model.addAttribute("errorMessage", "半角英数字文字以上で入力してください。");
+				return "createAccount";
 				
 			}
-		}
 		
-		// パラメータで受け取ったアカウント情報をDtoに格納する。
-		UserInfo userInfo = new UserInfo();
-		userInfo.setEmail(email);
-		userInfo.setPassword(password);
-		usersService.registUser(userInfo);
-		return "redirect:/login";
+		
 	}
 
 }
