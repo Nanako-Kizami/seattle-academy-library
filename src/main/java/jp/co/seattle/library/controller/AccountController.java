@@ -30,7 +30,6 @@ public class AccountController {
 		return "createAccount";
 	}
 
-	
 	/**
 	 * 新規アカウント作成
 	 *
@@ -49,27 +48,27 @@ public class AccountController {
 		logger.info("Welcome createAccount! The client locale is {}.", locale);
 
 		// バリデーションチェック、パスワード一致チェック（タスク１）
-		
-		if (password.length() >= 8 && password.matches("^[A-Za-z0-9]+$") ) {
-			if(password.equals(passwordForCheck)) {
+
+		if (password.length() >= 8 && password.matches("^[A-Za-z0-9]+$")) {
+			if (password.equals(passwordForCheck)) {
 				// パラメータで受け取ったアカウント情報をDtoに格納する。
 				UserInfo userInfo = new UserInfo();
 				userInfo.setEmail(email);
 				userInfo.setPassword(password);
 				usersService.registUser(userInfo);
 				return "redirect:/login";
+
 				
-			}else {
+			} else {
 				model.addAttribute("errorMessage", "設定したパスワードと一致しません。");
 				return "createAccount";
-			}	
-			}else {
-				model.addAttribute("errorMessage", "半角英数字文字以上で入力してください。");
-				return "createAccount";
-				
 			}
-		
-		
+		} else {
+			model.addAttribute("errorMessage", "半角英数字文字以上で入力してください。");
+			return "createAccount";
+
+		}
+
 	}
 
 }
