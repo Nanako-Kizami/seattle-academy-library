@@ -19,7 +19,7 @@ import jp.co.seattle.library.service.UsersService;
  * アカウント作成コントローラー
  */
 @Controller // APIの入り口
-public class AccountController {
+public class AccountController  {
 	final static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
 	@Autowired
@@ -29,6 +29,7 @@ public class AccountController {
 	public String createAccount(Model model) {
 		return "createAccount";
 	}
+
 
 	/**
 	 * 新規アカウント作成
@@ -48,7 +49,13 @@ public class AccountController {
 		logger.info("Welcome createAccount! The client locale is {}.", locale);
 
 		// バリデーションチェック、パスワード一致チェック（タスク１）
+		if (password.length() >= 8 && password.matches("[A-Za-z0-9]+$") ) {
+ 			if(password.equals(passwordForCheck)) {
 
+ 			}else {
+ 				model.addAttribute("errorMessage", "設定したパスワードと一致しません。");
+ 			}else {
+ 				model.addAttribute("errorMessage", "半角英数字文字以上で入力してください。");
 		
 		// パラメータで受け取ったアカウント情報をDtoに格納する。
 		UserInfo userInfo = new UserInfo();
