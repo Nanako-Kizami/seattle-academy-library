@@ -35,7 +35,7 @@ public class BookUtil {
 		}
 
 		// ISBNのバリデーションチェック
-		if (!(isValidIsbn(bookInfo.getIsbn()))) {
+		if (isValidIsbn(bookInfo.getIsbn())) {
 			errorList.add(ISBN_ERROR);
 		}
 
@@ -74,7 +74,7 @@ public class BookUtil {
 
 		} catch (Exception p) {
 			p.printStackTrace();
-			return false;
+			return true;
 		}
 	}
 
