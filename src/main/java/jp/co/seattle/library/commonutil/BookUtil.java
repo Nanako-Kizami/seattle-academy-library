@@ -27,7 +27,7 @@ public class BookUtil {
 	public List<String> checkBookInfo(BookDetailsInfo bookInfo) {
 
 		//TODO　各チェックNGの場合はエラーメッセージをリストに追加（タスク４）
-		List<String> errorList = new ArrayList<String>();
+		List<String> errorList = new ArrayList<>();
 		// 必須チェック
 
 		if (isEmptyBookInfo(bookInfo)) {
@@ -86,7 +86,7 @@ public class BookUtil {
 	 */
 	private static boolean isValidIsbn(String isbn) {
 		//TODO　ISBNが半角数字で10文字か13文字であればtrue（タスク４）
-		if (isbn.length() == 0) {
+		if (isbn.isEmpty()) {
 			return false;
 		} else if ((isbn.length() == 10 || isbn.length() == 13) && isbn.matches("^[0-9]+$")) {
 			return false;
@@ -117,7 +117,7 @@ public class BookUtil {
 		String author = bookInfo.getAuthor();
 		String publisher = bookInfo.getPublisher();
 		String publishdate = bookInfo.getPublishDate();
-		if (title.isEmpty() && author.isEmpty() && publisher.isEmpty() && publishdate.isEmpty()) {
+		if (title.isEmpty() || author.isEmpty() || publisher.isEmpty() || publishdate.isEmpty()) {
 			return true;
 		} else {
 			return false;
