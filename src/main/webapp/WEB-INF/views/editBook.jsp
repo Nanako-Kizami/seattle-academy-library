@@ -53,12 +53,10 @@
                                 </c:forEach>
                             </div>
                         </c:if>
-                        <span>書籍名</span><span class="care care2">必須</span> 
-                        <input type="text" name="title" value="${bookInfo.title}">
+                        <span>書籍名</span><span class="care care2">必須</span> <input type="text" name="title" value="${bookInfo.title}">
                     </div>
                     <div>
-                        <span>書籍名</span><span class="care care2">必須</span> 
-                        <input type="text" name="title" value="${bookInfo.title}">
+                        <span>書籍名</span><span class="care care2">必須</span> <input type="text" name="title" value="${bookInfo.title}">
                     </div>
                     <div>
                         <span>著者名</span><span class="care care2">必須</span> <input type="text" name="author" value="${bookInfo.author}">
@@ -76,6 +74,7 @@
                         <span>説明文</span><span class="care care1">任意</span> <input type="text" name="description" value="${bookInfo.description}">
                     </div>
                     <input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
+                　</div>
                 </div>
                 <div class="bookBtn_box">
                     <button type="submit" id="add-btn" class="btn_updateBook">更新</button>
