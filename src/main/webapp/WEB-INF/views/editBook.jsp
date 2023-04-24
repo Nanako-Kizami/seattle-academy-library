@@ -75,19 +75,12 @@
             </div>
             <div class="bookBtn_box">
                 <button type="submit" id="add-btn" class="btn_updateBook">更新</button>
-        </form>
-<<<<<<< HEAD
-        		<form method="post" action="deleteBook" name="delete">
+         </form>
+                <form method="post" action="deleteBook" name="delete">
                 <input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
                 <button type="submit" id="delete-btn" class="btn_deleteBook">削除</button> 
- 				</form>
- 			</div>      
-=======
-        <form method="post" action="deleteBook" name="delete"></form>
-            <input type="hidden" id="bookId" name="bookId" value="${bookInfo.bookId}">
-            <button type="submit" id="delete-btn" class="btn_deleteBook">削除</button>
-        </div>
->>>>>>> branch 'develop' of https://github.com/Nanako-Kizami/seattle-academy-library.git
+                </form>
+            </div>      
     </main>
 </body>
 </html>
