@@ -52,4 +52,18 @@ public class UsersService {
 		}
 	}
 
+	/**
+	 * ユーザー情報を更新する
+	 * 
+	 * @param userInfo ユーザー情報
+	 */
+	public void resetPassword(UserInfo userInfo) {
+
+		// SQL生成
+		String sql = "UPDATE users (email, password,reg_date,upd_date) VALUES ('" + userInfo.getEmail() + "','"
+				+ userInfo.getPassword() + "',now(),now()" + ")";
+
+		jdbcTemplate.update(sql);
+	}
+
 }
